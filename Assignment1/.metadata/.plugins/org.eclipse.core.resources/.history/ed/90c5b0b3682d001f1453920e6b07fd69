@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class StreamRank {
+    private ArrayList<Integer> stream;
+
+    public StreamRank() {
+        stream = new ArrayList<>();
+    }
+
+    public void track(int number) {
+        // Insert the number in sorted order
+        int pos = Collections.binarySearch(stream, number);
+        if (pos < 0) {
+            pos = -(pos + 1);
+        }
+        stream.add(pos, number);
+    }
+
+    public int getRankOfNumber(int number) {
+        // Find the position of the number
+        int pos = Collections.binarySearch(stream, number);
+        if (pos < 0) {
+            return -1; // Number not found in the stream
+        } else {
+            // Rank is the position + 1
+            return pos + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        StreamRank sr = new StreamRank();
+        int[] input = {10, 20, 15, 3, 4, 4, 1};
+
+        for (int num : input) {
+            sr.track(num);
+        }
+
+        int rank = sr.getRankOfNumber(4);
+        System.out.println("Rank of 4 is: " + rank); // Output: Rank of 4 is: 4
+    }
+}

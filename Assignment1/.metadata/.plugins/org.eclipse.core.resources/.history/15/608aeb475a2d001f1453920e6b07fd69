@@ -1,0 +1,9 @@
+package sunbeam.com;
+
+public class Employee {
+	int empId;
+	String name;
+	float salary;
+	
+	
+}

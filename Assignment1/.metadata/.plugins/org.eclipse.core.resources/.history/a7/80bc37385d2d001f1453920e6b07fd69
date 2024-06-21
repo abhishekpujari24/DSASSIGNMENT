@@ -1,0 +1,41 @@
+package com.sunbeam;
+
+import java.util.Scanner;
+
+public class BinarySearch {
+
+	public static int BinarySearchDesc(int arr[], int key) {
+		int left =0;
+		int right = arr.length-1;
+		int mid;
+		while(left<=right) {
+			mid =(left+right)/2;
+			if(arr[mid]==key) {
+				return arr[mid];
+			}
+			else {
+				if(arr[mid]<key) {
+					right=mid-1;
+				}
+				else
+				{
+					left = mid+1;
+				}
+			}
+				
+		}
+	
+		return 0;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int arr [] = {99,88,77,66,55,44,33,22,11};
+		System.out.println("enter the number to search in array");
+		int key = new Scanner(System.in).nextInt();
+		
+		int result = BinarySearchDesc(arr,key);
+		
+	}
+
+}

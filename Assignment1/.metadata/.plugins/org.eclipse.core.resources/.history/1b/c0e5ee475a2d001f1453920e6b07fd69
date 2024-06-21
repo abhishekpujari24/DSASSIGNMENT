@@ -1,0 +1,5 @@
+package sunbeam.com;
+
+public class Main {
+	Employee [] arr= {new Employee(),new Employee(), new Employee()};
+	
